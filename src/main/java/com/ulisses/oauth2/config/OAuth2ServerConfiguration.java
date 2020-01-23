@@ -35,12 +35,19 @@ public class OAuth2ServerConfiguration extends ResourceServerConfigurerAdapter {
 
     @Override
     public void configure(HttpSecurity httpSecurity) throws Exception{
-        httpSecurity.logout()
-                .invalidateHttpSession(true)
-                .clearAuthentication(true)
-                .and().authorizeRequests()
-                .anyRequest().fullyAuthenticated()
-                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
+//        httpSecurity.logout()
+//                .invalidateHttpSession(true)
+//                .clearAuthentication(true)
+//                .and().authorizeRequests()
+//                .anyRequest().fullyAuthenticated()
+//                .antMatchers(HttpMethod.OPTIONS, "/**").permitAll();
+    	httpSecurity
+        .antMatcher("/**")
+        .authorizeRequests()
+          .antMatchers("/", "/login**", "/webjars/**")
+          .permitAll()
+        .anyRequest()
+          .authenticated();
     }
 
     @Configuration

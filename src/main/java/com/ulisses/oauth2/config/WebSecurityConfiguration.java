@@ -30,12 +30,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     @Bean
-    public AuthenticationManager authenticationManagerBean() throws Exception{
+    public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
 
     @Override
-    public void configure(WebSecurity webSecurity) throws Exception{
+    public void configure(WebSecurity webSecurity) throws Exception {
         webSecurity.ignoring().antMatchers(HttpMethod.OPTIONS, "/**");
     }
 

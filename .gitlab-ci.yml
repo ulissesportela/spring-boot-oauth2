@@ -8,7 +8,7 @@ eb:dev:
        - apt-get install maven -y
        - mvn clean install
        - gem install dpl
-       - zip -r deploy.zip ./target/projeto-0.0.1-SNAPSHOT.jar
+       - zip -r deploy.zip ./target/oauth2-0.0.1-SNAPSHOT.jar
        - dpl --zip_file=deploy.zip --skip_cleanup --provider=elasticbeanstalk  --app="spring-oauth" --env="SpringOauth-env" --region="us-east-2" --bucket-name="elasticbeanstalk-us-east-2-949211766521"
     only:
        - master
